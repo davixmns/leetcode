@@ -15,15 +15,15 @@ class Solution:
     def romanToInt(self, s: str) -> int:
         number_list = [self.digits[c] for c in s]
         final_number = 0
-        for i in range(len(number_list)):
+        for i in range(len(number_list) - 1):
             a = number_list[i]
             b = number_list[i+1]
             if a < b:
-                final_number += b - a
-                i += 2
+                final_number -= a
             else:
                 final_number += a
-                i += 1
+        final_number += number_list[-1]
+        return final_number
 
 
 
